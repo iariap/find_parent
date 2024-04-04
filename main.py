@@ -59,7 +59,9 @@ root.add_child(b)
 a.add_child(c)
 a.add_child(d)
 
-print(list(map(lambda c: c.name, get_path(root, c))))
+assert get_path(root, c) == [root, a, c]
+
+assert get_path(a, b) == []
 
 assert find_parent(root, a, b) == root
 # //-> root
@@ -68,4 +70,4 @@ assert find_parent(root, c, d) == a
 # //-> a
 
 
-print(find_parent(root, b, c))
+assert find_parent(root, b, c) == root
